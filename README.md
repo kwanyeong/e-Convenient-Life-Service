@@ -23,7 +23,7 @@
 ##### 기술 스택
 ![stack](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/cb92c3a0-6dde-4fdc-b8b1-2421b5f2b745)
 
-
+---
 ##### 메뉴 구성
 - Service
 - Point
@@ -31,10 +31,30 @@
 - Contact
 - MyPage
 
+##### 시스템 기획
+![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/9fcd3299-d3f4-491c-b153-494a1eb21424)
+
+---
+##### ERD (ER-다이어그램) [DB 개념적 설계]
+![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/85e03c14-1b26-429f-abd4-b6e9b520f5d6)
+
+---
+##### DB 설계도 (논리적 설계)
+![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/e4aa0e2a-1052-432b-b7e6-4b20aae89616)
+
+---
+##### 회로구성도
+![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/250b6136-8409-4f82-b2b6-8bc7555e27f9)
+
+---
+##### 시연영상
 [![image](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/aa97e6ec-8ffd-4399-99f4-dfe53f35585d)](https://www.youtube.com/watch?v=y84rJoFc4vo)
 
 [시연영상](https://www.youtube.com/watch?v=y84rJoFc4vo)
 
-
+---
+##### 최종발표 PPT자료
 [![image](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/e2080355-d78b-4bd3-9b17-21cfd5a2adad)](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/e2080355-d78b-4bd3-9b17-21cfd5a2adad)
 [최종발표 PPT](https://github.com/kwanyeong/e-convient-Life-Service/files/13269935/ECO._.pptx)
+
+---
