@@ -20,7 +20,8 @@
 - 분류된 상태등급에 따른 ECO 포인트 차등지급
 - (A등급 -> A등급 : 1500포인트 / A등급 -> B 등급: 500포인트 / A등급 -> C등급 : 폐기대상)
 
-##### 기술 스택
+---
+#### 기술 스택
 ![stack](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/cb92c3a0-6dde-4fdc-b8b1-2421b5f2b745)
 
 ---
@@ -38,7 +39,6 @@
 ##### ERD (ER-다이어그램) [DB 개념적 설계]
 ![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/85e03c14-1b26-429f-abd4-b6e9b520f5d6)
 
----
 ##### DB 설계도 (논리적 설계)
 ![image](https://github.com/kwanyeong/e-Convenient-Life-Service/assets/124857002/e4aa0e2a-1052-432b-b7e6-4b20aae89616)
 
