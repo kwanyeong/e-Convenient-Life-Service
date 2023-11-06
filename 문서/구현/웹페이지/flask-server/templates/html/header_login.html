@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메인 홈페이지</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iBBGRzIBOh5917Wyb<ddSaxJIKORMjw51/owl4ytico+Jrp3dYw5loVpQ/ыйFAPzFqh3_rqxDFduVxM" crossorigin="anonymous">
+	<style>
+		.nav navbar-nav a:hover{
+			background-color: #04AA6D;
+		}
+		.current{
+			background-color: #04AA6D;
+		}
+
+		@media screen and (max-width: 400px){
+			.nav navbar-nav a{
+				float: none;
+				dispaly:block;
+			}
+		}
+
+		.text-align {
+            display: content;
+            align-items: center;
+            justify-content: left;
+            height: 100%;
+			padding-top: 3px;
+        }
+	</style>
+</head>
+<body>
+	<header id="navigation" class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- responsive nav button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- /responsive nav button -->
+
+				<!-- logo -->
+				<a class="navbar-brand" href="/">
+					<h1 id="logo"><a href ="/main/loginMain">
+						<img src="/static/img/logo-tumbler.png" style="width:130px; height:75px;" alt="logo-tumbler" />
+					</a></h1>
+				</a>
+				<!-- /logo -->
+			</div>
+
+			<!-- main nav -->
+			<nav class="collapse navbar-collapse navbar-right" role="Navigation">
+				<ul id="nav" class="nav navbar-nav">
+					<div class="text-align">
+					<li><h3 class="display-4" style="color: orange; display: inline;"><span>{{message}}</span></h3><h3 style="display: inline;"> 회원님 반갑습니다 !</h3></li>
+					</div>
+					<li class="current"><a href="/main/loginForm">홈</a></li>
+					<li><a href="/main/service"><i class="fa fa-fw fa-chart-line"></i> Services</a></li>
+					<li><a href="/point/view"><i class="fa fa-fw fa-coins"></i>  Point</a></li>
+					<li><a href="/main/contact"><i class="fa fa-fw fa-comment"></i><span> Contact</a></li>
+					<li><a href="/mypage/updateForm"><img id="mypage" src="/static/img/mypage.png"
+								style="width: 30px; height: 35px; background-color: white;"
+								onmouseover="changeBlue();" onmouseout="changeback1();"></a></li>
+					<li><a href="/main/logout"><img id="logout" src="/static/img/logout.png"
+						style="width: 30px; height: 35px; background-color: white;"
+						onmouseover="changeGreen();" onmouseout="changeback2();"></a></li>
+				</ul>
+			</nav>
+			<!-- /main nav -->
+
+		</div>
+	</header>
+
+</body>
+<script>
+	function changeBlue(){document.getElementById("mypage").style.backgroundColor="orange";}
+	function changeback1(){document.getElementById("mypage").style.backgroundColor="white";}
+	function changeGreen(){document.getElementById("logout").style.backgroundColor="green";}
+	function changeback2(){document.getElementById("logout").style.backgroundColor="white";}
+</script>
+</html>

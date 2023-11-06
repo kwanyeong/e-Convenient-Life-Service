@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iBBGRzIBOh5917Wyb<ddSaxJIKORMjw51/owl4ytico+Jrp3dYw5loVpQ/ыйFAPzFqh3_rqxDFduVxM" crossorigin="anonymous">
+	<style>
+		.nav navbar-nav a:hover{
+			background-color: #04AA6D;
+		}
+		.current{
+			background-color: #04AA6D;
+		}
+
+		@media screen and (max-width: 400px){
+			.nav navbar-nav a{
+				float: none;
+				dispaly:block;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header id="navigation" class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<!-- responsive nav button -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- /responsive nav button -->
+
+				<!-- logo -->
+				<a class="navbar-brand" href="/">
+					<h1 id="logo"><a href ="/">
+						<img src="/static/img/logo-tumbler.png" style="width:130px; height:75px;" alt="logo-tumbler" />
+					</a></h1>
+				</a>
+				<!-- /logo -->
+			</div>
+
+			<!-- main nav -->
+			<nav class="collapse navbar-collapse navbar-right" role="Navigation">
+				<ul id="nav" class="nav navbar-nav">
+					<li class="current"><a href="/main/logoutMain"><i class="fa fa-fw fa-home"></i>홈</a></li>
+					<li><a href="/main/service"><i class="fa fa-fw fa-chart-line"></i> Services</a></li>
+					<li><a href="/main/contact"><i class="fa fa-fw fa-comment"></i><span> Contact</span></a></li>
+					<li><a href="/user/loginForm"><img id="mypage" src="/static/img/mypage.png"
+								style="width: 30px; height: 35px; background-color: white;"
+								onmouseover="changeBlue();" onmouseout="changeback();"></a></li>
+				</ul>
+			</nav>
+			<!-- /main nav -->
+
+		</div>
+	</header>
+
+</body>
+<script>
+function changeBlue(){document.getElementById("mypage").style.backgroundColor="orange";}
+function changeback(){document.getElementById("mypage").style.backgroundColor="white";}
+</script>
+</html>

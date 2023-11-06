@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문의사항</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href={{url_for('static',filename="/img/favicon.png")}} />
+
+<!-- CSS
+================================================== -->
+<!-- Fontawesome Icon font -->
+<link rel="stylesheet" href={{url_for('static',filename="css/font-awesome.min.css")}}>
+<!-- bootstrap.min css -->
+<link rel="stylesheet" href={{url_for('static',filename="css/bootstrap.min.css")}}>
+<!-- Animate.css -->
+<link rel="stylesheet" href={{url_for('static',filename="static/css/animate.css")}}>
+<!-- Owl Carousel -->
+<link rel="stylesheet" href={{url_for('static',filename="css/owl.carousel.css")}}>
+<!-- Grid Component css -->
+<link rel="stylesheet" href={{url_for('static',filename="css/component.css")}}>
+<!-- Slit Slider css -->
+<link rel="stylesheet" href={{url_for('static',filename="css/slit-slider.css")}}>
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href={{url_for('static',filename="css/main.css")}}>
+<!-- Media Queries -->
+<link rel="stylesheet" href={{url_for('static',filename="css/media-queries.css")}}>
+<style>
+
+	#map {
+	  height: 400px;
+	  width: 100%;
+	}
+	#time-display{
+		margin: 0 auto;
+		justify-content: center;
+		display: flex;
+		font-size: 24px;
+		font-weight: bold;
+	}
+</style>
+
+<script
+	defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVBzewKfwXClheKWzmINJ_jOY5K5114iQ&callback=initMap">
+</script>
+
+</head>
+<body>
+    {% include "/html/header_logout.html" %}
+	<section id="contact-us">
+		<div class="container">
+			<div class="row">
+
+				<!-- section title -->
+				<div class="title text-center wow fadeIn" data-wow-duration="500ms">
+					<h2>
+						Get In <span class="color">Touch</span>
+					</h2>
+					<div class="border"></div>
+				</div>
+				<!-- /section title -->
+
+				<!-- Contact Details -->
+				<div class="contact-info col-md-6 wow fadeInUp"
+					data-wow-duration="500ms">
+					<h3>Contact Details</h3>
+					<p style="font-weight: bold;">대표이사 이관영</p>
+					<div class="contact-details">
+						<div class="con-info clearfix">
+							<i class="fa fa-home fa-lg"></i> <span>Member: <b>이관영</b>(대표) <b>박지균</b>(AIoT) <b>이승언</b>(DB) <b>황다빈</b>(Web)</span>
+						</div>
+
+						<div class="con-info clearfix">
+							<i class="fa fa-phone fa-lg"></i> <span>Phone:
+								010-6572-1196</span>
+						</div>
+
+
+						<div class="con-info clearfix">
+							<i class="fa fa-envelope fa-lg"></i> <span>Email:
+								<b>lcy629</b>@naver.com</span>
+						</div>
+					</div>
+				</div>
+				<!-- / End Contact Details -->
+
+				<!-- Contact Form -->
+				<div class="contact-form col-md-6 wow fadeInUp"
+					data-wow-duration="500ms" data-wow-delay="300ms">
+<!--					<form id="contact-form" method="post" action="sendmail.php" role="form"> -->
+						<form id="contact-form" method="post" action="/main/contact/SendEmail" role="form">
+						<div class="form-group">
+							<input type="text" placeholder="Your Name" class="form-control"
+								name="name" id="name">
+						</div>
+
+						<div class="form-group">
+							<input type="email" placeholder="Your Email" class="form-control"
+								name="email" id="email">
+						</div>
+
+						<div class="form-group">
+							<input type="password" placeholder="Your Email Password" class="form-control"
+								name="emailPassword" id="emailPassword" value = "">
+						</div>
+
+						<div class="form-group">
+							<input type="text" placeholder="Subject" class="form-control"
+								name="subject" id="subject">
+						</div>
+
+						<div class="form-group">
+							<textarea rows="6" placeholder="Message" class="form-control"
+								name="message" id="message"></textarea>
+						</div>
+
+						<div id="mail-success" class="success">Thank you. The
+							Mailman is on His Way :)</div>
+
+						<div id="mail-fail" class="error">Sorry, don't know what
+							happened. Try later :(</div>
+
+						<div id="cf-submit">
+							<input type="submit" id="contact-submit"
+								class="btn btn-transparent" value="Submit">
+						</div>
+
+					</form>
+				</div>
+				<!-- ./End Contact Form -->
+			</div>
+			<!-- end row -->
+		</div>
+		<!-- Google Map -->
+		<!-- /Google Map -->
+	<div id="time-display"></div>
+	<div id="map" style="height: 600px;">
+	</div>
+	
+	</section>
+	<!-- end section -->
+	<div id ="email-success-modal" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" style="color: black; font-weight: bolder;">메일 전송 성공</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					<p style="color: black; font-weight: bolder;">메일을 성공적으로 전송하였습니다.</p>
+				</div>
+				<div class="modal-footer">
+					<a href="/main/contact">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal"><h3 style="color:blue; font-weight: bolder;">확인</h3></button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id ="email-fail-modal" class="modal fade">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 class="modal-title" style="color: black; font-weight: bolder;">메일 전송 실패</h3>
+					<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+				</div>
+				<div class="modal-body">
+					<p style ="color: black; font-weight: bolder;">메일 전송에 실패하였습니다.<br><br> 이메일주소와 비밀번호를 다시 확인해보세요.</p> 
+				</div>
+				<div class="modal-footer">
+					<a href="/main/contact">
+					<button type="button" class="btn btn-primary" data-bs-dismiss="modal"><p style="color:blue; font-weight: bolder;">확인</p></button>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+<script>
+	$(document).ready(function() {
+		$('form').submit(function(event) {
+		  event.preventDefault(); // 서버로 폼을 전송하지 않도록 방지
+	  
+		  $.ajax({
+			url: '/main/contact/SendEmail',
+			type: 'post',
+			dataType: 'json',
+			data: $('form').serialize(),
+			success: function(result) {
+			  if (result.message === "success") {
+				$('#email-success-modal').modal('show');
+			  } else {
+				$('#email-fail-modal').modal('show');
+			  }
+			},
+			error: function(xhr, status, error) {
+				$('#email-fail-modal').modal('show');
+			}
+		  });
+		});
+	  });
+</script>
+
+<script>
+function changeBlue(){document.getElementById("mypage").style.backgroundColor="orange";}
+function changeback(){document.getElementById("mypage").style.backgroundColor="white";}
+</script>
+<script>
+	window.initMap = function () {
+		const map = new google.maps.Map(document.getElementById("map"), {
+		  center: { lat: 35.1465774, lng: 126.9222389 },
+		  zoom: 10
+		});
+	  
+		const malls = [
+		  { label: "A", name: "아시아문화박물관", lat: 35.1430573, lng: 126.924733 },
+		  { label: "A", name: "ACC 하늘마당", lat: 35.1501988, lng: 126.9159763 },
+		  { label: "K", name: "국민건강보험공단 광주동부지사", lat: 35.1463891, lng: 126.9237256 },
+		  { label: "J", name: "조선대학교 치과병원", lat: 35.1440448, lng: 126.9275627 },
+		  { label: "J", name: "전남대학교병원", lat: 35.1417259, lng: 126.9220237 },
+		  { label: "D", name: "동명동 카페골목", lat: 35.1506601, lng: 126.9253546 },
+		  { label: "N", name: "NC웨이브 충장점", lat: 35.1487756, lng: 126.9130791 }
+		];
+	  
+		const bounds = new google.maps.LatLngBounds();
+		const infoWindow = new google.maps.InfoWindow();
+	  
+		malls.forEach(({ label, name, lat, lng }) => {
+		  const marker = new google.maps.Marker({
+			position: { lat, lng },
+			label,
+			map
+		  });
+		  bounds.extend(marker.position);
+	  
+		  marker.addListener("click", () => {
+			map.panTo(marker.position);
+			infoWindow.setContent(name);
+			infoWindow.open({
+			  anchor: marker,
+			  map
+			});
+		  });
+		});
+	  
+		map.fitBounds(bounds);
+	  };
+	  
+	</script>
+	{% include "/main/footer.html" %}
+<!--
+<div id="footerContainer"></div>
+<script>
+	fetch('/static/jsp/footer.html')
+	.then(response => response.text())
+	.then(data =>{
+		document.getElementById('footerContainer').innerHTML = data;
+	})
+</script>
+-->
+<script>
+        function displayCurrentTime() {
+            var timeDisplay = document.getElementById("time-display");
+            var currentTime = new Date();
+			
+            var year = currentTime.getFullYear();
+            var month = currentTime.getMonth() +1; //월은 0부터 시작하므로 1을 더해줌.
+            var day = currentTime.getDate();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // 연, 월, 일, 시, 분, 초가 10 미만이면 앞에 0을 추가하여 두 자리로 표시
+            month = month < 10 ? "0" + month : month;
+            day = day < 10 ? "0" + day : day;
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+
+            timeDisplay.innerHTML = year+ "-" + month + "-" + day + "-" + hours + ":" + minutes + ":" + seconds;
+        }
+
+        // 현재 시간 표시
+        displayCurrentTime();
+
+        // 매 초마다 현재 시간 업데이트
+        setInterval(displayCurrentTime, 1000);
+    </script>
+<script>
+<a href="javascript:;" id="scrollUp">
+	<i class="fa fa-angle-up fa-2x"></i>
+</a>
+
+<!-- Main jQuery -->
+<script src={{url_for('static',filename="js/jquery-1.11.0.min.js")}}></script>
+<!-- Bootstrap 3.1 -->
+<script src={{url_for('static',filename="js/bootstrap.min.js")}}></script>
+<!-- Slitslider -->
+<script src={{url_for('static',filename="js/jquery.slitslider.js")}}></script>
+<script src={{url_for('static',filename="js/jquery.ba-cond.min.js")}}></script>
+<!-- Parallax -->
+<script src={{url_for('static',filename="js/jquery.parallax-1.1.3.js")}}></script>
+<!-- Owl Carousel -->
+<script src={{url_for('static',filename="js/owl.carousel.min.js")}}></script>
+<!-- Portfolio Filtering -->
+<script src={{url_for('static',filename="js/jquery.mixitup.min.js")}}></script>
+<!-- Custom Scrollbar -->
+<script src={{url_for('static',filename="js/jquery.nicescroll.min.js")}}></script>
+<!-- Jappear js -->
+<script src={{url_for('static',filename="js/jquery.appear.js")}}></script>
+<!-- Pie Chart -->
+<script src={{url_for('static',filename="js/easyPieChart.js")}}></script>
+<!-- jQuery Easing -->
+<script src={{url_for('static',filename="js/jquery.easing-1.3.pack.js")}}></script>
+<!-- tweetie.min -->
+<script src={{url_for('static',filename="js/tweetie.min.js")}}></script>
+<!-- Google Map API -->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<!-- Highlight menu item -->
+<script src={{url_for('static',filename="js/jquery.nav.js")}}></script>
+<!-- Sticky Nav -->
+<script src={{url_for('static',filename="js/jquery.sticky.js")}}></script>
+<!-- Number Counter Script -->
+<script src={{url_for('static',filename="js/jquery.countTo.js")}}></script>
+<!-- wow.min Script -->
+<script src={{url_for('static',filename="js/wow.min.js")}}></script>
+<!-- For video responsive -->
+<script src={{url_for('static',filename="js/jquery.fitvids.js")}}></script>
+<!-- Grid js -->
+<script src={{url_for('static',filename="js/grid.js")}}></script>
+<!-- Custom js -->
+<script src={{url_for('static',filename="js/custom.js")}}></script>      
+	
+	</script>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원정보 수정</title>
+    <link rel="shortcut icon" type="image/x-icon" href={{url_for('static',filename="/img/favicon.png")}} />
+    <link rel="stylesheet" href={{url_for('static', filename="/css/update.css")}}>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5-ApIA+v6xlzn4Bp+HHAAK5GSLf2xlYtvJ8U2Q4U" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-iBBGRzIBOh5917Wyb<ddSaxJIKORMjw51/owl4ytico+Jrp3dYw5loVpQ/ыйFAPzFqh3_rqxDFduVxM" crossorigin="anonymous">
+    <link rel="stylesheet" href={{url_for('static',filename="css/media-queries.css")}}>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script>
+            function checkUser(){
+                var regExpId = /^[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+                var regExpName =/^[a-z|A-Z|ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; /* var regExpName = /^[가-힣]+$/; */
+                
+                var regExpPhone1 = /^\d{3}$/; /*  minlength=3 maxlength=3 */
+                var regExpPhone2 = /^\d{3,4}$/; /* minlength=3 maxlength=4 */
+                var regExpPhone3 = /^\d{4}$/; /* minlength=3 maxlength=4 */
+                var regExpPhone =/^\d{3}-\d{3,4}-\d{4}$/; /* phone 통합본 */
+                var regExpEmail01 =/^[0-9a-zA-Z]+$/;
+                var regExpEmail02 =/^[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+                
+                // 변수선언
+                var form = document.User; // form.User 을 form으로 지정
+                var id = form.id.value;
+                var name = form.name.value;
+                var password1 = form.password1.value;
+                var password2 = form.password2.value;
+                var phone1 = form.phone1.value;
+                var phone2 = form.phone2.value;
+                var phone3 = form.phone3.value;
+                var phone = form.phone1.value + "-"+form.phone2.value+"-"+form.phone3.value;
+                var emailId = form.emailId.value;
+                var emailDomain = form.domainInput.value;
+    
+                //정규표현식 검증
+    /*            
+                if(id != null){
+                    if(!regExpId.test(id)){
+                        alert("아이디는 문자로 시작해야 합니다.")
+                        form.id.select();
+                        return;
+                    }
+                    alert("아이디를 입력하세요.")
+                    form.id.select();
+                    return;
+                }
+    */
+                if (!id) {
+                    alert("아이디를 입력하세요.");
+                    form.id.select();
+                    return;
+                } else if (!regExpId.test(id)) {
+                    alert("아이디는 문자로 시작해야 합니다.");
+                    form.id.select();
+                    return;
+                }
+                
+    
+                if(!regExpName.test(name)){
+                    alert("이름은 한글 혹은 영문으로만 입력합니다.")
+                    form.name.select();
+                    return;
+                }
+                if(!regExpPhone1.test(phone1)){
+                    alert("연락처를 입력해주세요.")
+                    form.phone1.select();
+                    return;
+                }
+                if(!regExpPhone2.test(phone2)){
+                    alert("연락처를 입력해주세요.")
+                    form.phone2.select();
+                    return;
+                }
+                if(!regExpPhone3.test(phone3)){
+                    alert("연락처를 입력해주세요.")
+                    form.phone3.select();
+                    return;
+                }
+                if(!regExpEmail01.test(emailId)){
+                    alert("이메일(ID)를 입력하시오")
+                    form.emailId.select();
+                    return;
+                  }
+                  if(!regExpEmail02.test(emailDomain)){
+                    alert("이메일(도메인주소)을 입력하시오")
+                    form.emailDomain.select();
+                    return;   
+                  }
+                
+                //비밀번호와 비밀번호확인 값 일치 여부확인
+                if(password1 != password2){
+                    alert("비밀번호가 일치하지 않습니다")
+                    form.password1.value="";
+                    form.password2.value="";
+                    form.password1.focus();
+                    return;
+                }
+
+                form.submit();
+            }
+    
+            
+            
+            function displayDomain() {
+                var inputVal = document.querySelector('#domainInput');
+                var selectVal = document.querySelector('#domainSelect');
+    
+                if (selectVal.value === "직접입력") {
+                    inputVal.removeAttribute('disabled');
+                    inputVal.focus();
+                } else {
+                    inputVal.value = selectVal.value;
+                    inputVal.disabled = true;
+                }
+            }
+    
+    document.querySelector('#domainSelect').addEventListener("change", displayDomain);
+    
+    
+    
+        function displayDomain2(){
+            var domainSelect = document.User.domainSelect.value; // = document.querySelect('#domainSelect');
+            if(domainSelect==="직접입력"){
+                document.User.user_Email2.value=="";
+                document.User.user_Email2.focus();
+            }else{
+                document.User.user_Email2.value=domainSelect;
+            }
+        }
+        
+        </script>
+<style>
+    body{
+        background-image: url({{url_for('static', filename="/img/mypageImage.jpg")}});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: (255,255,255,0.01);
+
+    }
+
+    header{
+        margin-top: 30px;
+        margin-bottom: 90px;
+    }
+    a:hover{
+        text-decoration: none;
+        color: black;
+    }
+    #phone1, #phone2, #phone3{
+        border: none;
+    }
+    .form-check-label{
+        font-size:16px; 
+        font-weight: bold;
+    }
+
+    body {
+        font-family: "Lato", sans-serif;
+        transition: background-color .5s;
+      }
+      
+      .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidenav a:hover {
+        color: #f1f1f1;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+      #tbody {
+        transition: margin-left .5s;
+        padding: 16px;
+        margin: 3% 12%;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      .category:hover{
+        background-color: gray;
+    }
+    .nav-item-dropdown {
+        display: none;
+    }
+    
+    .nav-item-dropdown.show {
+        display: block;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 230px;
+        max-width: 230px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+    
+    .nav-item-dropdown a {
+        padding: 12px 16px;
+        display: block;
+    }
+    
+</style>
+    </head>
+<body>
+        <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="/main/loginMain"><i class="fa fa-fw fa-home"></i> Main</a>
+        <a href="/main/service"><i class="fa fa-fw fa-chart-line"></i> Services</a>
+        <a href="/main/contact"><i class="fa fa-fw fa-comment"></i> Contact</a>
+        <a href="/point/view"><i class="fa fa-fw fa-coins"></i> Point</a>
+        <li class="nav-item" id="mypage-item">
+            <a class="nav-link" onclick="toggleDropdown()" href="#"><i class="fa fa-fw fa-user-plus"></i> Mypage  <i class="fa fa-fw fa-caret-down"></i></a>
+            <ul class="nav-item-dropdown" id="mypage-dropdown">
+                <li><a class="dropdown-item" href="/mypage/updateForm"> Update</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/mypage/leaveForm"> Leave</a></li>
+            </ul>
+        </li>
+      </div>
+
+    <div id="tbody">
+        <header>
+            <nav class="mx-auto" style="width: 350px; justify-content: center; margin-top: 5px;">
+               <a href="/main/loginMain" class="display-1" style="font-size: 56px; font-weight:bold;">e-편한서비스</a>
+            </nav>
+        </header> 
+
+        <!--header 끝-->
+
+        <div class="container" >
+            <div class="text-right">
+                <h1 style="text-align: right; font-weight:bold; color: #ff0000;"><a href="../point/view">포인트 이용현황 조회 &raquo;</a><h1>
+            </div>
+
+            <div class="text-left">
+            <h3 class="col-md-4 col-md-offset-4" style="font-weight:bold; color: orange; font-size: 36px;">회원정보 수정</h3>
+            </div>
+            <hr class="hr-14">
+            <span class="category" style="font-size:30px;cursor:pointer font-weight:bold; color:skyblue; font-size:40px;" onclick="openNav()">&#9776; 카테고리</span>
+            <br>
+            <br>
+
+            <form onsubmit="return()" action= "/mypage/update" name="User" method="post" style="margin-left: 80px;">
+
+            <div style="margin-left: 30px;">
+                <label for="username" class="text-muted">NAME</label>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="form_group">
+                        <div> 
+                        <input type="text" name="user_Name" id="name" value = "{{user_Name}}" class="form-control form-control-lg" disabled>
+                        </div>
+                    </div>
+                </div> 
+            </div>   
+            <br> 
+            <div style="margin-left: 30px;">
+                <label for="username" class="text-muted">ID</label>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="form_group">
+                        <div> 
+                        <input type="text" name="user_Id" id="id" value="{{user_Id}}" class="form-control form-control-lg" disabled>
+                        </div>
+                    </div>
+                </div> 
+            </div>  
+            <br> 
+            <div style="margin-left: 30px;">
+                <label for="username" class="text-muted">PASSWORD</label>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="form_group">
+                    <div class="form_group" style="display: flex; width=auto;">
+                            <input type="password" class="form-control mb-2 mr-sm-2" id="password1" name="user_Pwd" placeholder="비밀번호 입력" required>
+                            <input type="password" class="form-control mb-2 mr-sm-2" id="password2"  placeholder="비밀번호 확인" required>
+                            <!--  value = "${User[uPwd]}"-->
+                        </div>
+                    </div>
+                </div> 
+            </div>  
+            <br> 
+            <div style="margin-left: 30px;">
+                <label for="username" class="text-muted">PHONE</label>
+            </div>
+            <div>
+            <div class="col-md-6">
+                    <div class="form_group" class="form-control form-control-lg" style="border: 0.01px solid gray; border-radius: 5px; padding-top: 7px; padding-left: 7px;">
+                        <div style="display:flex; width=auto;">
+                            <input type="text" name="user_Phone1" id = "phone1" class="form-control mb-2 mr-sm-2" value="{{user_Phone1}}" maxlength="3" value = "${User.uPhone1}" required>
+                            <input type="text" name="user_Phone2" id = "phone2" class="form-control mb-2 mr-sm-2" maxlength="4" value = "{{user_Phone2}}" required>
+                            <input type="text" name="user_Phone3" id = "phone3" class="form-control mb-2 mr-sm-2" maxlength="4" value = "{{user_Phone3}}" required>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <br> 
+            <div style="margin-left: 30px;">
+                <label for="username" class="text-muted">E-MAIL</label>
+            </div>
+            <div>
+                <div class="col-md-6">
+                    <div class="form_group d-flex" style="border: 0.01px solid gray; border-radius: 5px; padding-top: 7px; padding-left: 7px;">
+                        <input type="text" class="form-control mb-2 mr-sm-2 flex-fill" name="user_Email1" id="emailId" value="{{user_Email1}}" required>
+                        <h2 style="color: orange; font-weight:bold;">@</h2>
+                        <input name="user_Email2" id="domainInput" class="form-control mb-2 mr-sm-2 flex-fill" value="{{user_Email2}}" required>
+                        <select id="domainSelect" class="form-control col-sm-3" onchange="displayDomain2()" style="width: auto;">
+                            <option value="naver.com">naver.com</option>
+                            <option value="daum.net">daum.net</option>
+                            <option value="gmail.com">gmail.com</option>
+                            <option value="nate.com">nate.com</option>
+                            <option value="" selected>직접입력</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+                <br><br>
+            <div style="float: right; margin-right: 150px;">
+            <div class="btn-group btn-group-lg" role="group">
+                <button type="submit" class="btn btn-secondary" onclick="checkUser()">수정 적용</button>
+                <button type="reset" class="btn btn-secondary" onclick="window.location.href='/main/loginMain'">뒤로 하기</button>
+            </div>
+            </div> 
+            </div>           
+        </form>
+        </div> 
+    </div>
+    <!--container 끝-->
+
+<footer>
+    <br> <br> <br> <br> <br>
+    {% include "/main/footer.html" %}
+</footer>
+
+</body>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("tbody").style.marginLeft = "400px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("tbody").style.marginLeft= "150px";
+      document.body.style.backgroundColor = "white";
+    }
+
+    // 페이지가 로딩되면 openNav()함수 호출
+    window.onload=function(){
+        openNav();
+    }
+    </script>
+<script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById("mypage-dropdown");
+        dropdown.classList.toggle("show");
+    }
+</script>
+<script>
+    function return(){
+
+
+        $(form).ready(function() {
+            $('form').submit(function(event) {
+                event.preventDefault(); // 서버로 폼을 전송하지 않도록 방지
+
+                $.ajax({
+                    url: '/mypage/update',
+                    type: 'post',
+                    dataType: 'json',
+                    data: $('form').serialize(),
+                    success: function(result) {
+                        if (message === "update complete") {
+                            window.location.href="/main/loginMain";
+                        } else {
+                            alert('에러발생');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('서버오류: ' + xhr.responseText);
+                    }
+                });
+            });
+         });
+     return false; //false 값을 반환하므로써, 새창이 열리지 않도록 함.
+    }
+</script>
+
+</html>

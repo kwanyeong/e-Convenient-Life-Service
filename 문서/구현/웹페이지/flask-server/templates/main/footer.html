@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+footer {
+    width: 100%;
+    height: 1s0px;
+    border-bottom: 2px solid #010;
+}
+a {
+    text-decoration: none;
+}
+#bottomMenu {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    border-top: 5px solid red;
+}
+#bottomMenu ul {
+    margin-top: 15px;
+}
+#bottomMenu ul li {
+    float: left;
+    padding: 5px 20px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+#bottomMenu ul li:last-child {
+    border-right: none;
+}
+#bottomMenu ul li a, #bottomMenu ul li a:visited {
+    font-size: 15px;
+    color: #666;
+}
+#sns {
+    position: relative;
+    left: 100px;
+}
+#sns ul li {
+    border: none;
+    padding: 5px;
+}
+
+#company {
+    clear: left;
+    margin-right:150px;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#bottomMenu{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 50px;
+	margin: 0 auto;
+	padding-top: 0;
+}
+
+#bottomMenu ul{
+	padding-left: 50px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	float:left;
+}
+#bottomMenu > * {
+  float: left;
+}
+#sns ul{
+  float: left;
+  justify-content: left;
+  text-align: left; /* li를 왼쪽으로 정렬 */
+}
+
+#sns ul li{
+  display: inline-block; /* li를 가로로 정렬 */
+  margin-right: 10px; /* li간의 간격을 설정 */
+}
+
+ul {
+  list-style-type: none; /* marker(::)) 삭제*/
+}
+
+</style>
+</head>
+<div id = "footerbody">
+	<div style="background-color: white; margin-top: 0px;">
+	    <div id="bottomMenu">
+	        <ul>
+	            <li><a href="https://gj-aischool.or.kr/info/story/" target="_blank">회 사 소 개</a></li>
+	            <li><a href="https://gj-aischool.or.kr/info/map/">회 사 위 치</a></li>
+	            <li><a href="/static/img/개인정보처리방침.pdf" onclick="window.open(this.href, '_blank'); return false;">개 인 정 보 처 리 방 침</a></li>
+	            <li><a href="/main/contact">문 의 사 항</a></li>
+	            <li></li>
+	        </ul>
+	        <div id="sns">
+	            <ul>
+	                <li>
+	                    <a href="https://ko-kr.facebook.com/"><img src="/static/img/sns-1.png" style="width:50px; height: 50px;"/></a>
+	                </li>
+	                <li>
+	                    <a href="https://www.youtube.com/"><img src="/static/img/sns-2.png" style="width:50px; height: 50px;"></a>
+	                </li>
+	                <li>
+	                    <a href="https://www.instagram.com/"><img src="/static/img/sns-3.png" style="width:50px; height: 50px;"></a>
+	                </li>
+	            </ul>
+	        </div>
+
+    </div>
+       <h2 id="company" style="color: navy;">광주광역시 동구 제봉로 92 (대성학원 1-3층)</h2>
+       <br>
+     </div>
+</body>
+</html>
