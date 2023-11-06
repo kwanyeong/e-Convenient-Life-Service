@@ -1,0 +1,222 @@
+@charset "utf-8";
+
+.fl{ float:left !important;}
+.fr{ float: right !important;}
+
+
+.tl{ text-align: left !important;}
+.tr{ text-align: right !important;}
+.tc{ text-align: center !important;}
+
+.clear{ clear: both !important;}
+
+.pd0{ padding:0px 10px !important;}
+.pd20{ padding:20px 20px !important;}
+.pd40{ padding:0px 40px !important;}
+.pd50{ padding:50px 0px !important;}
+.pd120{ padding:0px 120px !important;}
+
+.pl10{ padding-left:10px !important;}
+.pl40{ padding-left:40px !important;}
+
+.pr10{ padding-right:10px !important;}
+
+.pb0{ padding-bottom:0px !important;}
+.pb20{ padding-bottom:20px !important;}
+
+
+
+.mr0{ margin-right:0px !important;}
+.mr10{ margin-right:10px;}
+.mr20{ margin-right:20px;}
+.mr30{ margin-right:30px;}
+.mr50{ margin-right:50px;}
+
+.ml0{ margin-left:0px !important;}
+.ml10{ margin-left:10px !important;}
+.ml20{ margin-left:20px !important;}
+.ml30{ margin-left:30px !important;}
+
+
+.mt0{ margin-top:0px !important;}
+.mt20{ margin-top:20px !important;}
+.mt30{ margin-top:30px !important;}
+.mt35{ margin-top:35px !important;}
+.mt40{ margin-top:40px !important;}
+
+.mb0{ margin-bottom:0px !important;}
+.mb10{ margin-bottom:10px !important;}
+.mb20{ margin-bottom:20px !important;}
+.mb30{ margin-bottom:30px !important;}
+.mb35{ margin-bottom:35px !important;}
+
+
+
+
+
+.red-txt{color: #f5535b !important;}
+.blue-txt{color: #0e4095 !important;}
+.purple-txt{color: #7637c3 !important;}
+
+.dangi-name{color: #009933; font-weight: 600; display: block;}
+
+
+.del-btn{cursor: pointer; text-decoration: underline;}
+.del-btn:hover{cursor: pointer; text-decoration: underline;}
+
+
+
+.layer-bg{width:100%; height: 100%; position: fixed; left: 0; top: 0; background: #000; opacity: .7; z-index: 10; display: none;}
+.mint-bg{background: #c7eded !important;}
+.cyan-bg{background: #c7eefa !important;}
+.blue-bg{background: #0099ec !important;}
+.ice-bg{background: #d2e8fe !important;}
+.gray-bg{background: #cbe1f2 !important;}
+.purple-bg{background: #d7dcfd !important;}
+
+
+.blue-btn{background: #0099ec !important;}
+.blue-btn:hover{background: #3183b0 !important;}
+.blue-btn:focus{background: #3183b0 !important;}
+.blue-btn:disabled{background: #7fccf5 !important;}
+
+.gray-btn{background: #889fb5 !important;}
+.gray-btn:hover{background: #878787 !important;}
+.gray-btn:focus{background: #878787 !important;}
+.gray-btn:disabled{background: #c3cfda !important;}
+
+
+.navy-btn{background: #3e4779 !important;}
+.navy-btn:hover{background: #0f228c !important;}
+.navy-btn:focus{background: #0f228c !important;}
+.navy-btn:disabled{background: #829ab3 !important;}
+
+
+.green-btn{background: #009933 !important;}
+.green-btn:hover{background: #04741c !important;}
+.green-btn:focus{background: #04741c !important;}
+.green-btn:disabled{background: #7fcc99 !important;}
+
+
+
+input.checkbox{width: 18px; height: 18px; border: 1px #40bd5b solid; display: inline-block; margin:0px 5px 5px 5px;}
+input.input-box{display: inline-block; background: #fff; border: 1px #ccc solid; padding: 1px 3px; text-align: left; color: #000; font-weight: 300; font-size: 16px;height: 38px;}
+
+
+.discription{font-weight: 300;  color: #666; text-align: left; position: relative;}
+.point{color: #ff6600;}
+.under-line{color: #0099ec !important; text-decoration: underline !important; padding: 0px 3px;}
+
+
+
+/*  radio btn    */
+
+.radio-check{display: inline-block; position: relative; width: auto; height: 30px; line-height: 30px; margin-right: 15px; font-weight: 400; padding-left:25px; font-size: 16px; cursor: pointer; text-align: left; user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;}
+
+.radio-check input[type="radio"]{position: absolute; opacity: 0; cursor: pointer; width: 1px; height: 1px;}
+.radio-check:hover input[type="radio"] ~ .checkmark { }
+.radio-check input[type="radio"]:checked ~ .checkmark { background: url("../images/common/radio_on.png") no-repeat center top; background-size:contain; }
+.radio-check input[type="radio"]:checked ~ .checkmark:after { display: block; }
+
+.checkmark {position: absolute; top: 4px; left: 0px; width: 20px; height: 20px; background: url("../images/common/radio_off.png") no-repeat center top;}
+.checkmark:after {display: none; position: absolute;}
+
+
+.radio-check .checkmark:after {top: 2px; left: 7px; width: 5px; height: 10px; border: solid white; border-width: 0 3px 3px 0;}
+
+/*.agree .all_agree input[type="checkbox"]:checked + label {
+background:url(../images/check.png) #fa3062 no-repeat center/10px 10px; float: right}*/
+
+
+
+/*  table   */
+.vertical-tb{}
+.vertical-tb tbody td{text-align: left !important;}
+
+
+
+.disable{background-color:#e5e5e5 !important; border: 1px #e5e5e5 solid !important;}
+
+.border-top{border-top: 1px #b4d3e6 solid;}
+.border-right{border-right: 1px #dbdbdb solid;}
+.border-bottom{border-bottom: 1px #ccc solid;}
+.no-border-bottom{border-bottom: 0px #ccc solid !important;}
+
+
+.tb-margin p.point{display:block; text-align: right; font-size: 14px;}
+
+
+
+
+/*  팝업   */
+.pop-layer{width: 100%; height: 100%; background:#000; opacity:.75; position:fixed; left: 0; top: 0; z-index:999;}
+
+
+
+/*   달력   */
+.datepicker-wrap{display:block; background: #fff; border: 1px #ccc solid; width: 220px; height: 36px; padding: 1px 2px; text-align: left;}
+.datepicker-wrap label {width:32px; height: 32px; background: url("../images/plug/spr_global_icon.png") no-repeat 2px -168px; cursor: pointer; float: right; margin-top: 2px;}
+.datepicker-wrap input{width: 75%; height: 34px; float:left; margin-right: 10px; font-size: 14px; text-align: left; border: 0px;}
+
+.ui-datepicker .ui-datepicker-prev span{width:24px; height: 24px; background: url("../images/common/spr_global_icon.png") no-repeat -45px -114px; cursor: pointer;}
+
+.ui-datepicker .ui-datepicker-next span{width:24px; height: 24px; background: url("../images/plug/spr_global_icon.png") no-repeat -24px -114px; cursor: pointer;}
+
+.ui-datepicker .ui-datepicker-prev{float: left;}
+.ui-datepicker .ui-datepicker-next{float:right;}
+
+
+
+
+#datepicker * {font-family:'Nanum Barun Gothic','돋움', Dotum, Helvetica, Verdana, Arial, sans-serif; font-size: 13px;}
+
+.ui-datepicker .ui-datepicker-title {font-size: 13px !important;font-weight: 600;}
+.ui-datepicker select.ui-datepicker-month{padding: 0px 12px 0px 10px;}
+.ui-datepicker select.ui-datepicker-year {width: auto !important; padding: 0px 16px 0px 10px;}
+
+
+
+
+
+
+/* paging   */
+
+.page-wrap{width: 100%; height: auto; position: relative; padding: 20px 0px; background: #f1f1f1; margin: 20px 0px;}
+.page-wrap ul{text-align: center; width: auto; height: auto; position: relative; margin: 0 auto;}
+.page-wrap ul li{display: inline-block; line-height: 16px; font-size: 14px; font-weight: 400;    padding: 8px 0px;}
+.page-wrap ul li a{color: #000; display: block; padding: 0px 8px; letter-spacing: -1px;}
+
+.page-wrap ul li a:hover{color: #0099ec;}
+.page-wrap ul li a:focus{color: #0099ec;}
+
+.page-wrap ul li.on{background: #fff; border: 1px #0099ec solid;}
+.page-wrap ul li.on a{color: #0099ec;}
+
+
+.page-wrap ul li.pre a{border-right: 1px #cdcdcd solid; padding: 0px 16px 0px 8px; font-weight: 600;}
+.page-wrap ul li.next a{border-left: 1px #cdcdcd solid; padding: 0px 8px 0px 16px; font-weight: 600;}
+
+
+
+
+
+.overflow{overflow-x:auto;}
+.txt-block{display:block !important;}
+
+
+
+.coming-soon {width: 100%; height: auto; position: relative; text-align: center; padding: 30% 0%; background: #fffaf2;}
+.coming-soon p{font-size: 20px; font-weight: 400;line-height: 40px; margin-top: 20px; color: #000; text-align: center;}
+
+
+
+.loading-bar{width: 100%; height: 100%; background: rgb(255 255 255 / 80%); position: fixed; left: 0; top: 0; z-index:999; text-align: center; padding: 20% 0%;}
+.loading-bar p{font-size: 20px; font-weight: 400;line-height: 40px; margin-top: 20px; color: #000; text-align: center;}
+
+
+
+textarea.editor{width: auto; height: 300px; border: 1px #ccc solid; margin: 20px 0px; overflow-y: auto;  padding: 20px 20px; font-size: 16px; font-weight: 300; color: #666; line-height: 24px; word-break: break-all; white-space: normal; text-align: left;}
+
+
+
+
