@@ -25,6 +25,41 @@
 ![stack](https://github.com/kwanyeong/e-convient-Life-Service/assets/124857002/cb92c3a0-6dde-4fdc-b8b1-2421b5f2b745)
 
 ---
+#### 역할 구성
+
+(1) Web 개발 (HTML/CSS, JavaScript, AJAX, Django, Flask)
+
+    - Main 페이지 : 네비게이션 바, 스크롤바, 캐로셀(Carousel), 이벤트정보 기능 구현 등
+    - User/Admin 페이지 : 로그인, 회원가입, 회원가입 완료, Mypage, 회원정보 수정
+    - Product 페이지 : 제품정보 등록/수정, 제품정보 조회
+    - Rental 페이지 : 대여정보 조회
+    - Point 페이지 : 고객 포인트정보 조회
+
+(2) SMTP(Simple Mailing Transfer Protocol) 메일링 서비스 개발
+
+    - Contact 페이지 : 회사로 직접 연락할 수 있는 메일링 기능 구현
+    - SMTP/SSL(Secure Sockets Layer) 메일통신간 정보보안 무결성 제공
+
+(3) DB – Server 통신
+
+    - MySQL : 웹서버 – DB정보간 실시간 통신 (MQTT Socket 통신)
+
+(4) AI 모델링
+
+    - Roboflow 웹사이트에서 Crack and Dent 데이터 수집
+    - OpenCV 기반 이미지 딥러닝 모델구축 및 학습
+
+(5) 프로젝트 PM 총괄
+
+    - 프로젝트 기획(WireFrame 화면설계), DB설계, Web 개발 및 AIoT 프로젝트 관리
+
+- Team Stack
+    (1) 제품 인식 : RFID기술을 활용한 제품간 고유 식별 ID 생성
+    (2) 제품 – DB 통신 : MQTT socket 통신
+    (3) AIoT 하드웨어 제작
+    (4) AIoT 소프트웨어 모델링 (Arduino / RasberryPi)
+
+---
 ##### 메뉴 구성
 - Service
 - Point
