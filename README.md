@@ -27,6 +27,7 @@
 ---
 #### 역할 구성
 
+### My Stack
 (1) Web 개발 (HTML/CSS, JavaScript, AJAX, Django, Flask)
 
     - Main 페이지 : 네비게이션 바, 스크롤바, 캐로셀(Carousel), 이벤트정보 기능 구현 등
@@ -53,11 +54,11 @@
 
     - 프로젝트 기획(WireFrame 화면설계), DB설계, Web 개발 및 AIoT 프로젝트 관리
 
-- Team Stack
-    (1) 제품 인식 : RFID기술을 활용한 제품간 고유 식별 ID 생성
-    (2) 제품 – DB 통신 : MQTT socket 통신
-    (3) AIoT 하드웨어 제작
-    (4) AIoT 소프트웨어 모델링 (Arduino / RasberryPi)
+(6) Team Stack
+    - (1) 제품 인식 : RFID기술을 활용한 제품간 고유 식별 ID 생성
+    - (2) 제품 – DB 통신 : MQTT socket 통신
+    - (3) AIoT 하드웨어 제작
+    - (4) AIoT 소프트웨어 모델링 (Arduino / RasberryPi)
 
 ---
 ##### 메뉴 구성
