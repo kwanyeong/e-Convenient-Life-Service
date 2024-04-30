@@ -88,7 +88,7 @@
 
     - 프로젝트 기획(WireFrame 화면설계), DB설계, Web 개발 및 AIoT 프로젝트 관리
 
-(6) Team Stack
+### Team Stack
 
     - 제품 인식 : RFID기술을 활용한 제품간 고유 식별 ID 생성
     - DB데이터 통신 : MQTT socket 통신
